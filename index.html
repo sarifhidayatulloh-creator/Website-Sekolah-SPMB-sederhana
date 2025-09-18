@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah SPMB Pro & SPP Online 2025 | Manajemen Sekolah Terintegrasi</title>
+    <meta name="description" content="Platform all-in-one untuk administrasi sekolah: SPMB Online, Pembayaran SPP, Absensi Realtime, E-Konseling, dan 20+ fitur terintegrasi.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2c6e49;
+            --secondary: #4c956c;
+            --accent: #d68c45;
+            --light: #f8f5f2;
+            --dark: #1d3557;
+            --success: #2a9d8f;
+            --warning: #e9c46a;
+            --danger: #e76f51;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f9fafc;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            background: white !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--primary) !important;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark) !important;
+            margin: 0 0.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(44, 110, 73, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d5c3d;
+            border-color: #1d5c3d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 110, 73, 0.4);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c47a33;
+            border-color: #c47a33;
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 110, 73, 0.9) 0%, rgba(76, 149, 108, 0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 20px rgba(44, 110, 73, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+        
+        .feature-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .feature-card:hover .feature-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .feature-card-body {
+            padding: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .pill {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-table {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem;
+        }
+        
+        .comparison-table td {
+            padding: 1rem 1.2rem;
+            vertical-align: middle;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .highlight {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+        }
+        
+        .parent-preview {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .phone-frame {
+            position: relative;
+            width: 100%;
+        }
+        
+        .phone-frame img {
+            width: 100%;
+            display: block;
+        }
+        
+        .phone-screen {
+            position: absolute;
+            top: 45px;
+            left: 20px;
+            right: 20px;
+            bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+        }
+        
+        .phone-screen-content {
+            height: 100%;
+            background: #f0f7ff;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+        
+        .phone-app-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .phone-notification {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .phone-notification strong {
+            color: var(--primary);
+        }
+        
+        .payment-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+        }
+        
+        .payment-method i {
+            width: 30px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            height: 100%;
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-card {
+            border: 2px solid #eee;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--accent);
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(214, 140, 69, 0.25);
+        }
+        
+        .pricing-card.popular::before {
+            content: 'TERPOPULER';
+            position: absolute;
+            top: 15px;
+            right: -25px;
+            background: var(--accent);
+            color: white;
+            padding: 3px 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .pricing-header {
+            background: var(--light);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        .pricing-features {
+            padding: 1.5rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .security-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .security-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+        
+        .guarantee-badge {
+            background: linear-gradient(135deg, #2a9d8f, #1d7a75);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .guarantee-badge h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question i {
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), #1d5c3d);
+            color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            padding: 4rem 0;
+        }
+        
+        .cta-badge {
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .countdown {
+            background: white;
+            color: var(--primary);
+            display: inline-flex;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem 0;
+        }
+        
+        .partner-logo {
+            opacity: 0.6;
+            transition: all 0.3s;
+            height: 40px;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.8);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h5 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links a {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            margin-top: 1rem;
+        }
+        
+        .highlight-box {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .navbar-collapse {
+                background: white;
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">SPMB<span>Pro</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#features">Fitur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Hasil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Harga</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+                <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#" class="btn btn-outline-primary me-2">Demo Gratis</a>
+                    <a href="#" class="btn btn-primary">Daftar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-6">
+                    <h1>Transformasi Digital Sekolah Dimulai dari Sini</h1>
+                    <p>Platform All-in-One untuk Administrasi Sekolah: SPMB Online, Pembayaran SPP, Absensi Realtime, E-Konseling, dan 20+ Fitur Terintegrasi</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" class="btn btn-accent">Coba Gratis 14 Hari</a>
+                        <a href="#" class="btn btn-outline-light">Lihat Demo (60 Detik)</a>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                        <div class="d-flex">
+                            <div class="bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; margin-left: -15px; border: 3px solid white;">
+                                <span class="text-primary fw-bold">A</span>
+                            </div>
+                            <div class="bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; margin-left: -15px; border: 3px solid white;">
+                                <span class="text-primary fw-bold">B</span>
+                            </div>
+                            <div class="bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; margin-left: -15px; border: 3px solid white;">
+                                <span class="text-primary fw-bold">C</span>
+                            </div>
+                        </div>
+                        <div class="ms-3">
+                            <div class="fw-bold text-white">1,200+ Sekolah</div>
+                            <div>telah menggunakan SPMB Pro</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="text-center">
+                        <img src="https://png.pngtree.com/png-clipart/20230705/ourmid/pngtree-back-to-school-high-school-kids-png-image_7370188.png" alt="SPMB Pro Dashboard" class="img-fluid shadow-lg rounded-4" style="max-width: 90%; border-radius: 20px !important; box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center py-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-shield-alt text-success me-2"></i>
+                        <span>Kominfo Certified</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center py-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-lock text-primary me-2"></i>
+                        <span>ISO 27001 Compliant</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center py-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-cloud text-info me-2"></i>
+                        <span>Backup Harian</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center py-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-headset text-warning me-2"></i>
+                        <span>Support 24/7 Lokal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-7">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fitur Unggulan yang Mengubah Cara Sekolah Beroperasi</h2>
+                <p class="text-muted">Dirancang khusus untuk mengatasi masalah administrasi sekolah secara tuntas</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <span class="pill">Keuangan</span>
+                            <h3>SPP PayLater untuk Orang Tua</h3>
+                            <p>Fitur khusus yang memungkinkan orang tua membayar SPP dalam 2 cicilan (dengan persetujuan admin). Auto-generate rencana pembayaran di WhatsApp dengan QRIS.</p>
+                            <div class="highlight-box">
+                                <strong>Hasil Terbukti:</strong> 47% lebih sedikit penangguhan siswa karena keterlambatan pembayaran
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <span class="pill">Kecerdasan</span>
+                            <h3>Absensi Predictor Berbasis AI</h3>
+                            <p>Sistem menganalisis data historis untuk mengidentifikasi siswa berisiko absen. Mengirimkan peringatan proaktif: "Adi sering absen hari Jumat - disarankan untuk follow-up".</p>
+                            <div class="highlight-box">
+                                <strong>Hasil Terbukti:</strong> Pengurangan 32% absensi berulang setelah 3 bulan implementasi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span class="pill">Pemasaran</span>
+                            <h3>Referral Engine yang Menghasilkan</h3>
+                            <p>Setiap orang tua mendapatkan link referral unik. Dapatkan Rp 200.000 per pendaftar baru yang berhasil. Dashboard real-time menunjukkan performa referral Anda.</p>
+                            <div class="highlight-box">
+                                <strong>Hasil Terbukti:</strong> Sekolah menggunakan fitur ini tumbuh 28% lebih cepat dalam penerimaan siswa
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parent Experience -->
+    <section class="py-7 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="parent-preview mb-5 mb-lg-0">
+                        <div class="phone-frame">
+                            <img src="https://img.freepik.com/premium-vector/vector-teacher-giving-thumbs-up_995281-43429.jpg" alt="Phone Frame">
+                            <div class="phone-screen">
+                                <div class="phone-screen-content">
+                                    <div class="phone-header">
+                                        <div class="phone-app-name">SPMB Pro Orang Tua</div>
+                                        <div><i class="fas fa-cog"></i></div>
+                                    </div>
+                                    
+                                    <div class="phone-notification">
+                                        <strong>Rani (Kelas 7A)</strong> telah melakukan pembayaran SPP bulan Mei sebesar Rp 500.000
+                                    </div>
+                                    
+                                    <div class="phone-notification">
+                                        <strong>Adi (Kelas 5B)</strong> tidak hadir hari ini. Alasan: Sakit. Dokumen: <a href="#" style="color: var(--primary);">Lihat Surat</a>
+                                    </div>
+                                    
+                                    <div class="phone-notification">
+                                        <strong>Rani</strong> memenangkan lomba Olimpiade Matematika tingkat Kabupaten!
+                                    </div>
+                                    
+                                    <div class="payment-card">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <div>SPP Bulan Mei</div>
+                                            <div class="text-success">Lunas</div>
+                                        </div>
+                                        <div class="progress" style="height: 8px; border-radius: 4px;">
+                                            <div class="progress-bar bg-success" style="width: 100%"></div>
+                                        </div>
+                                        
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div>Tabungan Siswa</div>
+                                            <div>Rp 250.000</div>
+                                        </div>
+                                        <div class="payment-method mt-2">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <span>**** 4567</span>
+                                        </div>
+                                        <div class="payment-method">
+                                            <i class="fab fa-cc-diners-club"></i>
+                                            <span>**** 8910</span>
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <a href="#" class="btn btn-sm btn-primary w-100">Bayar Sekarang</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Revolutionisasi Pengalaman Orang Tua</h2>
+                    <p class="lead mb-4">Apa yang orang tua lihat di ponsel mereka dalam 1 ketuk:</p>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Saldo SPP Realtime + QRIS</h4>
+                            <p>Pantau tagihan dan bayar langsung melalui QRIS tanpa keluar aplikasi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Foto Absensi dengan Timestamp</h4>
+                            <p>Lihat foto absensi anak dengan waktu dan lokasi yang diverifikasi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4>Pemberitahuan Prestasi Instan</h4>
+                            <p>Dapatkan notifikasi saat anak memenangkan lomba atau mencapai prestasi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h4>Agenda Sekolah Terkini</h4>
+                            <p>"Jangan lewatkan: Science Fair pada 15 Mei!"</p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="blockquote mt-5 p-4 bg-white rounded shadow-sm" style="border-left: 4px solid var(--accent);">
+                        <p class="mb-0">"Dulu saya harus menelepon guru untuk update. Sekarang semuanya datang ke saya – bahkan saat saya sedang di pasar!"</p>
+                        <footer class="blockquote-footer mt-2">Ibu Siti, Orang Tua 3 Siswa</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Power Toolkit -->
+    <section class="py-7">
+        <div class="container">
+            <div class="section-title">
+                <h2>Toolkit Admin: Solusi 5 Detik untuk Masalah Rumit</h2>
+                <p class="text-muted">Hilangkan ribuan jam kerja manual dengan sistem yang benar-benar mengerti kebutuhan sekolah</p>
+            </div>
+            
+            <div class="comparison-table">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th width="30%">Masalah</th>
+                            <th width="30%">Cara Konvensional</th>
+                            <th width="40%">Solusi SPMB Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SPP Terlambat</strong></td>
+                            <td>Telepon manual ke orang tua (rata-rata 3x/hari)</td>
+                            <td class="highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                Auto-WA reminder + link pembayaran langsung
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Siswa Tidak Hadir</strong></td>
+                            <td>Catat di buku → telepon orang tua</td>
+                            <td class="highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                Foto absensi dengan GPS + notifikasi instan ke orang tua
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tahun Ajaran Baru</strong></td>
+                            <td>Copy-paste Excel (rata-rata 8 jam kerja)</td>
+                            <td class="highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                Satu klik "Naik Kelas" dengan rekomendasi AI
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Laporan Keuangan</strong></td>
+                            <td>3 hari kerja dengan Excel</td>
+                            <td class="highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                PDF siap dalam 8 detik (tekan tombol ⚡)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary btn-lg px-5">Lihat Demo Fitur Admin</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="py-7 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Keamanan yang Membuat Inspektor Senang</h2>
+                    <p class="lead mb-4">Memenuhi Peraturan Kemendikbud No. 46/2023 tentang Perlindungan Data Sekolah</p>
+                    
+                    <div class="security-feature">
+                        <div class="security-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Tiga Lapis Perlindungan</h4>
+                            <p><strong>Input Shield:</strong> Auto-block XSS/SQLi attempts sebelum mencapai database</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="security-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h4>Ruang Data Terenkripsi</h4>
+                            <p><strong>Data Vault:</strong> Enkripsi AES-256 untuk semua catatan siswa dan keuangan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-feature mb-0">
+                        <div class="security-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div>
+                            <h4>Log Guardian</h4>
+                            <p><strong>Audit Trail:</strong> Siapa mengakses apa + kapan (siap untuk inspeksi)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-badge mt-4">
+                        <i class="fas fa-certificate me-2"></i>
+                        ISO 27001 Compliant | Terdaftar di Kominfo (No. 1423/BSSN/2025)
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="bg-white p-4 rounded-4 shadow-sm">
+                        <h3 class="mb-4 text-center">Perbandingan Keamanan</h3>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="w-50 text-end pe-3">
+                                <h4 class="text-danger">Sistem Konvensional</h4>
+                                <div class="text-muted">Spreadsheet/Excel</div>
+                            </div>
+                            <div class="position-relative" style="width: 100px;">
+                                <div class="position-absolute top-0 start-50 translate-middle" style="width: 2px; height: 100%; background: var(--dark);"></div>
+                                <div class="position-absolute top-0 start-50 translate-middle bg-danger rounded-circle" style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">X</div>
+                            </div>
+                            <div class="w-50 ps-3">
+                                <h4 class="text-success">SPMB Pro</h4>
+                                <div class="text-muted">Sistem Terenkripsi</div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="p-3 bg-danger bg-opacity-10 border border-danger rounded">
+                                    <h5 class="text-danger">Tidak Ada Enkripsi</h5>
+                                    <p class="small">Data mudah dibobol jika file Excel bocor</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="p-3 bg-success bg-opacity-10 border border-success rounded">
+                                    <h5 class="text-success">Enkripsi AES-256</h5>
+                                    <p class="small">Standar keamanan militer untuk semua data sensitif</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <div class="p-3 bg-danger bg-opacity-10 border border-danger rounded">
+                                    <h5 class="text-danger">Tidak Ada Backup</h5>
+                                    <p class="small">Hilang semua data jika laptop rusak</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="p-3 bg-success bg-opacity-10 border border-success rounded">
+                                    <h5 class="text-success">Backup Harian Otomatis</h5>
+                                    <p class="small">Data disimpan di 3 lokasi berbeda (termasuk cloud)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="p-3 bg-danger bg-opacity-10 border border-danger rounded">
+                                    <h5 class="text-danger">Tidak Ada Audit Log</h5>
+                                    <p class="small">Tidak tahu siapa yang mengubah data</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-success bg-opacity-10 border border-success rounded">
+                                    <h5 class="text-success">Log Aktivitas Lengkap</h5>
+                                    <p class="small">Catat semua perubahan dengan detail waktu dan pengguna</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-7">
+        <div class="container">
+            <div class="section-title">
+                <h2>Harga Transparan – Tanpa Biaya Tersembunyi</h2>
+                <p class="text-muted">Pilih paket yang sesuai dengan kebutuhan sekolah Anda</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Starter</h3>
+                            <div class="pricing-price">Rp 990K<span class="text-muted" style="font-size: 1rem; vertical-align: top;">/bulan</span></div>
+                            <div>Untuk sekolah dengan < 200 siswa</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i> SPMB Online</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Pembayaran SPP</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Absensi Sederhana</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Notifikasi WhatsApp Dasar</li>
+                                <li><i class="fas fa-times-circle text-danger me-2"></i> E-Konseling</li>
+                                <li><i class="fas fa-times-circle text-danger me-2"></i> Sistem Referral</li>
+                                <li><i class="fas fa-times-circle text-danger me-2"></i> Laporan Keuangan</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 text-center border-top">
+                            <a href="#" class="btn btn-outline-primary w-100">Pilih Paket Starter</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="pricing-card popular">
+                        <div class="pricing-header">
+                            <h3>Pro</h3>
+                            <div class="pricing-price">Rp 1,850K<span class="text-muted" style="font-size: 1rem; vertical-align: top;">/bulan</span></div>
+                            <div><strong>TERPOPULER</strong> untuk sekolah menengah</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Semua fitur Starter</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> E-Konseling Terstruktur</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Sistem Referral Orang Tua</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Laporan Keuangan Otomatis</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Absensi dengan Foto & GPS</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Tabungan Siswa Digital</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Integrasi Tripay Payment Gateway</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 text-center border-top">
+                            <a href="#" class="btn btn-primary w-100">Pilih Paket Pro</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                            <div class="pricing-price">Custom</div>
+                            <div>Untuk sekolah besar & multi-cabang</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Semua fitur Pro</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Integrasi SIMAKAD</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Multi-Cabang</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Aplikasi Mobile Khusus</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Priority Support 24/7</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Kustomisasi UI/UX</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i> Pelatihan Staf Intensif</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 text-center border-top">
+                            <a href="#" class="btn btn-outline-primary w-100">Konsultasi Enterprise</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="guarantee-badge mt-5">
+                <h3><i class="fas fa-gift me-2"></i> PROMO KHUSUS 2025</h3>
+                <p>Daftar sebelum 30 Juni 2025 dan dapatkan:</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                    <div class="d-flex align-items-center bg-white bg-opacity-20 p-2 rounded" style="min-width: 250px;">
+                        <i class="fas fa-check-circle fa-2x me-3"></i>
+                        <div>Gratis Setup WhatsApp Business API (Rp 2,500,000)</div>
+                    </div>
+                    <div class="d-flex align-items-center bg-white bg-opacity-20 p-2 rounded" style="min-width: 250px;">
+                        <i class="fas fa-check-circle fa-2x me-3"></i>
+                        <div>Gratis Logo Animasi untuk Homepage</div>
+                    </div>
+                    <div class="d-flex align-items-center bg-white bg-opacity-20 p-2 rounded" style="min-width: 250px;">
+                        <i class="fas fa-check-circle fa-2x me-3"></i>
+                        <div>Buku Panduan Cetak untuk Staf Senior</div>
+                    </div>
+                </div>
+                <div class="countdown mt-4">
+                    <i class="fas fa-clock me-2"></i> PROMO BERAKHIR DALAM: 14 HARI 05:23:18
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-7 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hasil Terbukti dalam 90 Hari</h2>
+                <p class="text-muted">Data dari 200+ sekolah yang menggunakan SPMB Pro pada 2024</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="bg-white p-4 rounded-4 text-center shadow-sm h-100">
+                        <div class="display-4 text-success fw-bold mb-3">96%</div>
+                        <h4>Tingkat Pemungutan SPP</h4>
+                        <p class="text-muted">Dari 74% sebelumnya</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" style="width: 96%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-1">
+                                <small>Sebelum</small>
+                                <small>Sesudah</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="bg-white p-4 rounded-4 text-center shadow-sm h-100">
+                        <div class="display-4 text-primary fw-bold mb-3">6 jam</div>
+                        <h4>Waktu Admin/Minggu</h4>
+                        <p class="text-muted">Dari 22 jam sebelumnya</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-primary" style="width: 27%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-1">
+                                <small>Sesudah</small>
+                                <small>Sebelum</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="bg-white p-4 rounded-4 text-center shadow-sm h-100">
+                        <div class="display-4 text-warning fw-bold mb-3">3</div>
+                        <h4>Pengaduan/Bulan</h4>
+                        <p class="text-muted">Dari 17 pengaduan sebelumnya</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-warning" style="width: 18%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-1">
+                                <small>Sesudah</small>
+                                <small>Sebelum</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="bg-white p-4 rounded-4 text-center shadow-sm h-100">
+                        <div class="display-4 text-info fw-bold mb-3">22</div>
+                        <h4>Referral/Bulan</h4>
+                        <p class="text-muted">Dari 5 referral sebelumnya</p>
+                        <div class="mt-3">
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-info" style="width: 100%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-1">
+                                <small>Sesudah</small>
+                                <small>Sebelum</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Investasi terbaik yang kami lakukan sejak membangun perpustakaan baru. Orang tua lebih terlibat, admin lebih produktif, dan siswa lebih disiplin dengan sistem absensi foto."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">PB</div>
+                                <div>
+                                    <strong>Pak Budi</strong>
+                                    <div>Kepala Sekolah SMA Negeri 1 Bandung</div>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Dengan fitur referral, orang tua kami aktif merekrut siswa baru. Dalam 6 bulan, jumlah pendaftar meningkat 35% tanpa biaya pemasaran tambahan. Ini revolusi untuk sekolah swasta!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar" style="background: #e76f51;">IW</div>
+                                <div>
+                                    <strong>Ibu Widi</strong>
+                                    <div>Kepala Sekolah SD Islam Al-Azhar</div>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-7">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cara Kerja – 3 Langkah Sederhana</h2>
+                <p class="text-muted">Mulai menggunakan SPMB Pro dalam waktu kurang dari 48 jam</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-card-body">
+                            <div class="feature-icon bg-primary">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3>1. Jadwalkan Sesi Setup Gratis</h3>
+                            <p>Tim kami akan mengkonfigurasi sistem sekolah Anda dalam 48 jam. Tidak perlu teknisi IT - kami yang kerjakan semuanya.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Gratis migrasi data dari Excel</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Kustomisasi nama sekolah & logo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-card-body">
+                            <div class="feature-icon bg-success">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3>2. Pelatihan Staf Anda</h3>
+                            <p>Video tutorial 30 menit + panduan cetak untuk staf senior. Kami pastikan semua admin dan guru siap menggunakan sistem.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Modul pelatihan terstruktur</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Dukungan langsung selama pelatihan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-card-body">
+                            <div class="feature-icon bg-info">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>3. Live & Tumbuh Bersama</h3>
+                            <p>Mulai operasional dengan sistem baru. Kami terus perbarui fitur dan berikan dukungan - Anda fokus pada pendidikan.</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Pembaruan fitur rutin tanpa biaya tambahan</span>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Tim dukungan khusus untuk sekolah Anda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary btn-lg px-5">Jadwalkan Setup Gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-7 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pertanyaan yang Sering Ditanyakan</h2>
+                <p class="text-muted">Temukan jawaban untuk pertanyaan umum tentang SPMB Pro</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            Bisakah kami mengimpor data siswa dari Excel yang sudah ada?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>YA!</strong> Kami memiliki konverter ajaib yang menangani:</p>
+                            <ul>
+                                <li>NISN, nama, kelas, kontak orang tua</li>
+                                <li>Riwayat pembayaran (bahkan file Excel yang tidak rapi)</li>
+                                <li>Proses selesai dalam < 15 menit</li>
+                            </ul>
+                            <p>Tim kami akan membantu migrasi data tanpa biaya tambahan selama masa setup.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Bagaimana jika orang tua tidak menggunakan smartphone?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami menyediakan solusi cadangan:</p>
+                            <ul>
+                                <li><strong>SMS notification</strong> (Rp 150/sms) untuk orang tua tanpa smartphone</li>
+                                <li><strong>Slip pembayaran cetak</strong> yang bisa diambil di sekolah</li>
+                                <li><strong>Dashboard sekolah</strong> untuk admin mencetak laporan untuk orang tua</li>
+                            </ul>
+                            <p>Catatan: 98% orang tua lebih memilih notifikasi digital setelah mencoba sistem kami selama 1 bulan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Apakah ada kontrak jangka panjang?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>TIDAK!</strong> Anda membayar bulanan dan bisa berhenti kapan saja tanpa biaya penalti.</p>
+                            <p>Statistik kami menunjukkan 94% sekolah tetap menggunakan SPMB Pro selama 2+ tahun karena nilai yang nyata yang kami berikan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Bagaimana dengan integrasi dengan sistem yang sudah ada?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami mendukung integrasi dengan berbagai sistem:</p>
+                            <ul>
+                                <li>Integrasi dengan SIMAKAD untuk sekolah berbasis kampus</li>
+                                <li>API terbuka untuk sistem akademik lainnya</li>
+                                <li>Ekspor data dalam format Excel, CSV, PDF</li>
+                            </ul>
+                            <p>Tim teknis kami akan membantu integrasi sesuai kebutuhan sekolah Anda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-7">
+        <div class="container">
+            <div class="cta-section">
+                <div class="container cta-content">
+                    <div class="text-center mb-5">
+                        <div class="cta-badge">SPESIAL 2025</div>
+                        <h2 class="text-white fw-bold mb-3">Transformasi Digital Sekolah Anda Dimulai Hari Ini</h2>
+                        <p class="lead text-white-50 mb-4">Jangan lewatkan promo khusus untuk 50 sekolah pertama</p>
+                        <div class="countdown bg-white text-primary d-inline-block px-4 py-2 rounded-pill">
+                            <i class="fas fa-clock me-2"></i> PROMO BERAKHIR DALAM: 14 HARI 05:23:18
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="bg-white p-4 rounded-4 text-center h-100">
+                                        <div class="feature-icon mx-auto mb-3" style="background: #e8f5e9; color: var(--success);">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <h4 class="text-dark">Demo Gratis</h4>
+                                        <p>Lihat cara kerja sistem dalam video 60 detik - tanpa panggilan sales.</p>
+                                        <a href="#" class="btn btn-outline-success mt-auto">Tonton Demo</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="bg-white p-4 rounded-4 text-center h-100">
+                                        <div class="feature-icon mx-auto mb-3" style="background: #e3f2fd; color: var(--primary);">
+                                            <i class="fas fa-headset"></i>
+                                        </div>
+                                        <h4 class="text-dark">Spesialis Pendidikan</h4>
+                                        <p>Bicara dengan ahli kami (8 pagi - 8 malam WIB). Kami juga bisa berbahasa Jawa/Sunda!</p>
+                                        <a href="#" class="btn btn-outline-primary mt-auto">Hubungi Kami</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="bg-white p-4 rounded-4 text-center h-100">
+                                        <div class="feature-icon mx-auto mb-3" style="background: #fff8e1; color: var(--accent);">
+                                            <i class="fas fa-calculator"></i>
+                                        </div>
+                                        <h4 class="text-dark">Bandingkan Paket</h4>
+                                        <p>Starter vs Pro vs Enterprise - perbandingan detail dalam satu halaman.</p>
+                                        <a href="#" class="btn btn-outline-warning mt-auto">Lihat Perbandingan</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-5">
+                                <a href="#" class="btn btn-light btn-lg px-5 shadow">DAFTAR SEKARANG & DAPATKAN BONUS</a>
+                                <p class="text-white-50 mt-3">Garansi uang kembali 30 hari jika tidak puas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Logos -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="text-muted">Dipercaya oleh Sekolah Terkemuka</h3>
+            </div>
+            <div class="partner-logos">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.BDBJ6h8hGUu3YgNGQ5GmfQHaII?rs=1&pid=ImgDetMain&o=7&rm=3" alt="SMA Taruna Bangsa" class="partner-logo" style="height: 40px;">
+                <img src="https://th.bing.com/th/id/OIP.KO0i6OgF5jdo4k0y_Iys7AAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="SMKN1 Puloampel" class="partner-logo" style="height: 35px;">
+                <img src="https://blog.pengajartekno.co.id/wp-content/uploads/2023/03/Logo-SMK-7.png" alt="SMK Teknologi Surabaya" class="partner-logo" style="height: 45px;">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.gbUTklmED4y5XC_cBPqqNwHaGh?rs=1&pid=ImgDetMain&o=7&rm=3" alt="SMA Kristen Kalam Kudus" class="partner-logo" style="height: 30px;">
+                <img src="https://play-lh.googleusercontent.com/jKKdnLTpYiRozhNf_rtvINc7nBWd1UhORVPlgka5SnXkWXFbuDsFbNLWBGh38K_dKg" alt="MTs Negeri 2 Jakarta" class="partner-logo" style="height: 40px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <h5>SPMB Pro</h5>
+                    <p>Platform manajemen sekolah terintegrasi dengan 20+ fitur untuk mempermudah administrasi sekolah secara efisien, modern, dan terintegrasi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Fitur</h5>
+                    <div class="footer-links">
+                        <a href="#">SPMB Online</a>
+                        <a href="#">Pembayaran SPP</a>
+                        <a href="#">Absensi Realtime</a>
+                        <a href="#">E-Konseling</a>
+                        <a href="#">Sistem Referral</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Solusi</h5>
+                    <div class="footer-links">
+                        <a href="#">Untuk SD</a>
+                        <a href="#">Untuk SMP</a>
+                        <a href="#">Untuk SMA/SMK</a>
+                        <a href="#">Multi-Cabang</a>
+                        <a href="#">Sekolah Internasional</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Perusahaan</h5>
+                    <div class="footer-links">
+                        <a href="#">Tentang Kami</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Karir</a>
+                        <a href="#">Kemitraan</a>
+                        <a href="#">Kontak</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5>Kontak Kami</h5>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknologi Pendidikan No. 8, Jakarta Selatan</a>
+                        <a href="#"><i class="fas fa-envelope me-2"></i> support@spmbpro.id</a>
+                        <a href="#"><i class="fas fa-phone me-2"></i> WA: +62 811-888-SPMB (7762)</a>
+                        <a href="#"><i class="fas fa-globe me-2"></i> www.spmbpro.id</a>
+                    </div>
+                    <div class="mt-4">
+                        <img src="https://i.imgur.com/kominfo-cert.png" alt="Kominfo Certification" class="img-fluid" style="max-width: 150px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="mb-0">© 2025 SPMB By SARIF HIDAYATULLOH - Partner Resmi Kemendikbud RI. Data dihosting di Indonesia (AWS Jakarta Region).</p>
+                <p class="mt-2 mb-0 text-white-50" style="font-size: 0.9rem;">*SPMB Pro adalah aplikasi independen dan tidak berafiliasi dengan Kemendikbud RI, kecuali sebagai mitra teknologi yang telah terverifikasi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
